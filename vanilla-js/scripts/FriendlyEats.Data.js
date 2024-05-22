@@ -83,7 +83,7 @@ FriendlyEats.prototype.getFilteredRestaurants = FriendlyEats.prototype.getFilter
   }
 
   this.getDocumentsInQuery(query, renderer);
-};
+}
   /*
     TODO: Retrieve filtered list of restaurants
   */
