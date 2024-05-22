@@ -22,20 +22,36 @@ FriendlyEats.prototype.addRestaurant = FriendlyEats.prototype.addRestaurant = fu
   /*
     TODO: Implement adding a document
   */
+FriendlyEats.prototype.getAllRestaurants = FriendlyEats.prototype.getAllRestaurants = function(renderer) {
+  var query = firebase.firestore()
+      .collection('restaurants')
+      .orderBy('avgRating', 'desc')
+      .limit(50);
 
-
-
-FriendlyEats.prototype.getAllRestaurants = function(renderer) {
+  this.getDocumentsInQuery(query, renderer);
+};
   /*
     TODO: Retrieve list of restaurants
   */
-};
 
-FriendlyEats.prototype.getDocumentsInQuery = function(query, renderer) {
+
+FriendlyEats.prototype.getDocumentsInQuery = FriendlyEats.prototype.getDocumentsInQuery = function(query, renderer) {
+  query.onSnapshot(function(snapshot) {
+    if (!snapshot.size) return renderer.empty(); // Display "There are no restaurants".
+
+    snapshot.docChanges().forEach(function(change) {
+      if (change.type === 'removed') {
+        renderer.remove(change.doc);
+      } else {
+        renderer.display(change.doc);
+      }
+    });
+  });
+}
   /*
     TODO: Render all documents in the provided query
   */
-};
+
 
 FriendlyEats.prototype.getRestaurant = function(id) {
   /*
