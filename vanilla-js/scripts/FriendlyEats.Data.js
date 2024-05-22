@@ -61,7 +61,7 @@ FriendlyEats.prototype.getRestaurant = FriendlyEats.prototype.getRestaurant = fu
   */
 
 
-FriendlyEats.prototype.getFilteredRestaurants = FriendlyEats.prototype.getFilteredRestaurants = function(filters, renderer) {
+FriendlyEats.prototype.getFilteredRestaurants = function(filters, renderer) {
   var query = firebase.firestore().collection('restaurants');
 
   if (filters.category !== 'Any') {
@@ -83,7 +83,7 @@ FriendlyEats.prototype.getFilteredRestaurants = FriendlyEats.prototype.getFilter
   }
 
   this.getDocumentsInQuery(query, renderer);
-}
+};
   /*
     TODO: Retrieve filtered list of restaurants
   */
