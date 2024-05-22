@@ -22,7 +22,7 @@ FriendlyEats.prototype.addRestaurant = function(data) {
   /*
     TODO: Implement adding a document
   */
-FriendlyEats.prototype.getAllRestaurants = FriendlyEats.prototype.getAllRestaurants = function(renderer) {
+FriendlyEats.prototype.getAllRestaurants = function(renderer) {
   var query = firebase.firestore()
       .collection('restaurants')
       .orderBy('avgRating', 'desc')
