@@ -35,7 +35,7 @@ FriendlyEats.prototype.getAllRestaurants = FriendlyEats.prototype.getAllRestaura
   */
 
 
-FriendlyEats.prototype.getDocumentsInQuery = FriendlyEats.prototype.getDocumentsInQuery = function(query, renderer) {
+FriendlyEats.prototype.getDocumentsInQuery = function(query, renderer) {
   query.onSnapshot(function(snapshot) {
     if (!snapshot.size) return renderer.empty(); // Display "There are no restaurants".
 
